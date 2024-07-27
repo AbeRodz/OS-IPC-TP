@@ -7,15 +7,6 @@
 The purpose of this project is Inter-process Communication (IPC) using named FIFOS. The goal is straightforward as shown in the diagram below:
 
 
-<style>
-  .cluster-label span {
-    background-color: gray;
-    display: block;
-    padding: 2px;
-    border-radius: 5px;
-    margin-left: 330px;
-  }
-</style>
 ```mermaid
 graph TD
     subgraph Writer
