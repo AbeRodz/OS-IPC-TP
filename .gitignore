@@ -1,0 +1,12 @@
+.vscode
+
+# CMAKE
+CMakeCache.txt
+CMakeFiles
+myfifo
+reader
+writer
+Log.txt
+Sign.txt
+*.cmake
+*.ninja
