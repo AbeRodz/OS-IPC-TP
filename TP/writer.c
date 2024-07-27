@@ -132,7 +132,6 @@ int main() {
 
         } else {
             if (feof(stdin)) {
-                sprintf(buffer, "SIGNTERM");
                 break;
             }
         }
