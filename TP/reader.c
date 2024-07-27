@@ -59,6 +59,9 @@ int main(void) {
                 logger->base.log_message((BaseLogger *)logger, LOG_ERROR,"received undefined message : %s", buffer);
                 }
             }
+        else {
+            break;
+        }
     } 
     // closing loggers and fifo
     close_file_logger(logger);
