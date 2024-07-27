@@ -45,7 +45,7 @@ void signal_handler(int signal) {
     char message[32];
     if (signal == SIGUSR1) {
         logger->log_message(logger, LOG_INFO, "SIGN:1");
-        sprintf(message, "SIGN:1\n");
+        sprintf(message, "SIGN:1");
 
         if (send_message(message) == -1) {
             logger->log_message(logger, LOG_ERROR, "error sending SIGN:1");
@@ -53,7 +53,7 @@ void signal_handler(int signal) {
 
     } else if (signal == SIGUSR2) {
         logger->log_message(logger, LOG_INFO, "SIGN:2");
-        sprintf(message, "SIGN:2\n");
+        sprintf(message, "SIGN:2");
 
         if (send_message(message) == -1) {
             logger->log_message(logger, LOG_ERROR, "error sending SIGN:2");
@@ -124,7 +124,7 @@ int main() {
 
             char message[1050];
             logger->log_message(logger, LOG_INFO, "sending message: %s", buffer);
-            snprintf(message, sizeof(message), "DATA:%s\n", buffer);
+            snprintf(message, sizeof(message), "DATA:%s", buffer);
 
             if (send_message(message) == -1) {
                 logger->log_message(logger, LOG_ERROR, "write error");
@@ -132,11 +132,12 @@ int main() {
 
         } else {
             if (feof(stdin)) {
+                sprintf(buffer, "SIGNTERM");
                 break;
             }
         }
     }
-
+    logger->log_message(logger, LOG_INFO, "terminating gracefully");
     close(fifo_fd);
     unlink(fifo);
 
