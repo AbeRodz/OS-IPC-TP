@@ -62,7 +62,7 @@ int main(void) {
         else {
             break;
         }
-    } 
+}   logger->base.log_message((BaseLogger *)logger, LOG_INFO,"terminating reader...");
     // closing loggers and fifo
     close_file_logger(logger);
     close_file_logger(signLogger);
